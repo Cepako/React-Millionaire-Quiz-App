@@ -1,0 +1,25 @@
+.Question {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 70%;
+  height: 10%;
+  text-align: center;
+  color: white;
+  border: 2px solid white;
+  border-radius: 10px;
+  font-size: 1.7em;
+  font-weight: 500;
+  background-image: linear-gradient(
+    to bottom,
+    #160337,
+    #130232,
+    #17012b,
+    #180024,
+    #18001e,
+    #180016,
+    #14000d,
+    #0d0005,
+    #000000
+  );
+}

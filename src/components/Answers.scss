@@ -1,0 +1,43 @@
+.Answers {
+  width: 70%;
+  height: 25%;
+  color: white;
+
+  ul {
+    width: 100%;
+    height: 100%;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-evenly;
+
+    list-style: none;
+
+    li {
+      width: 45%;
+      margin-bottom: 3%;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      font-size: 2em;
+      font-weight: 300;
+      border: 1px solid white;
+      border-radius: 20px;
+      background-image: linear-gradient(
+        to bottom,
+        #240046,
+        #1f0241,
+        #1a033c,
+        #160337,
+        #130232,
+        #17012b,
+        #180024,
+        #18001e
+      );
+
+      &:hover {
+        background-image: linear-gradient(to bottom, #0017ff, #001cff);
+        cursor: pointer;
+      }
+    }
+  }
+}

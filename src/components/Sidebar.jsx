@@ -2,12 +2,12 @@ import React from 'react';
 
 import './Sidebar.scss';
 
-const Sidebar = () => {
+const Sidebar = ({ name }) => {
   return (
     <div className="Sidebar">
       <div>
         <h2>
-          Name: <span>Ton</span>
+          Name: <span>{name}</span>
         </h2>
         <h2>
           Total Earned: <span>1000000$</span>

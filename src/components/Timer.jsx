@@ -12,7 +12,7 @@ const Timer = () => {
         if (prevValue === 1) clearInterval(intervalIndexRef.current);
         return prevValue - 1;
       });
-    }, 100);
+    }, 1000);
 
     return () => clearInterval(intervalIndexRef.current);
   }, []);

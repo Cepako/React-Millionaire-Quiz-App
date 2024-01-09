@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from 'react';
+import React, { useEffect } from 'react';
 import useSound from 'use-sound';
 
 import Timer from './Timer';
@@ -19,7 +19,7 @@ const Stage = () => {
   return (
     <div className="Stage">
       <img src="./millionaireBackground.jpg" alt="background" />
-      <Timer className="Timer" />
+      <Timer />
       <Question />
       <Answers />
     </div>

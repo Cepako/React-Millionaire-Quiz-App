@@ -9,13 +9,14 @@ import './App.scss';
 const App = () => {
   const [viewStage, setViewStage] = useState(false);
   const [name, setName] = useState('');
+  const [moneyEarned, setMoneyEarned] = useState(0);
 
   return (
     <div className="App">
       {viewStage ? (
         <>
           <Stage />
-          <Sidebar name={name} />
+          <Sidebar name={name} moneyEarned={moneyEarned} />
         </>
       ) : (
         <StartPage setViewStage={setViewStage} setName={setName} name={name} />

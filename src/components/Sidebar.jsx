@@ -2,7 +2,7 @@ import React from 'react';
 
 import './Sidebar.scss';
 
-const Sidebar = ({ name }) => {
+const Sidebar = ({ name, moneyEarned }) => {
   return (
     <div className="Sidebar">
       <div>
@@ -10,7 +10,7 @@ const Sidebar = ({ name }) => {
           Name: <span>{name}</span>
         </h2>
         <h2>
-          Total Earned: <span>1000000$</span>
+          Total Earned: <span>{moneyEarned}$</span>
         </h2>
       </div>
 
@@ -55,10 +55,10 @@ const Sidebar = ({ name }) => {
         <li>
           3 <span>$ 300</span>
         </li>
-        <li className="active">
+        <li>
           2 <span>$ 200</span>
         </li>
-        <li>
+        <li className="active">
           1 <span>$ 100</span>
         </li>
       </ul>

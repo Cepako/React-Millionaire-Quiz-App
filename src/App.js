@@ -10,27 +10,30 @@ const App = () => {
   const [viewStage, setViewStage] = useState(false);
   const [name, setName] = useState('');
   const [moneyEarned, setMoneyEarned] = useState(0);
-  const [data, setData] = useState(null);
+  const [data, setData] = useState([]);
+  const [questionNumber, setQuestionNumber] = useState(1);
 
   useEffect(() => {
     fetch('./questions.json')
       .then((response) => response.json())
-      .then((data) => setData(data))
+      .then((data) => setData(data.games))
       .catch((err) => console.error('Fetch error: ', err));
   }, []);
 
-  return (
-    <div className="App">
-      {viewStage ? (
-        <>
-          <Stage />
-          <Sidebar name={name} moneyEarned={moneyEarned} />
-        </>
-      ) : (
-        <StartPage setViewStage={setViewStage} setName={setName} name={name} />
-      )}
-    </div>
+  const viewComponent = viewStage ? (
+    <>
+      <Stage data={data} questionNumber={questionNumber} setData={setData} />
+      <Sidebar
+        name={name}
+        moneyEarned={moneyEarned}
+        questionNumber={questionNumber}
+      />
+    </>
+  ) : (
+    <StartPage setViewStage={setViewStage} setName={setName} name={name} />
   );
+
+  return <div className="App">{viewComponent}</div>;
 };
 
 export default App;

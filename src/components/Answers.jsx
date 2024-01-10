@@ -1,16 +1,37 @@
-import React from 'react';
+import React, { useState } from 'react';
+import useSound from 'use-sound';
 
 import './Answers.scss';
 
-const Answers = () => {
+import correctSound from '../sounds/correct.mp3';
+import wrongSound from '../sounds/wrong.mp3';
+
+const Answers = ({ answers, correct }) => {
+  const [answerPressed, setAnswerPressed] = useState(false);
+
+  const [playCorrect] = useSound(correctSound, { volume: 0.1 });
+  const [playWrong] = useSound(wrongSound, { volume: 0.1 });
+
+  const isCorrect = (i) => {
+    if (!answerPressed) {
+      setTimeout(() => {
+        if (i === correct) playCorrect();
+        else playWrong();
+      }, 3000);
+
+      setAnswerPressed(true);
+    }
+  };
+
+  const answersList = answers.map((answer, i) => (
+    <li onClick={() => isCorrect(i)} key={answer}>
+      {answer}
+    </li>
+  ));
+
   return (
     <div className="Answers">
-      <ul>
-        <li>answer a</li>
-        <li>answer b</li>
-        <li>answer c</li>
-        <li>answer d</li>
-      </ul>
+      <ul>{answersList}</ul>
     </div>
   );
 };

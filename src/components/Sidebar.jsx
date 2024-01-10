@@ -2,7 +2,19 @@ import React from 'react';
 
 import './Sidebar.scss';
 
-const Sidebar = ({ name, moneyEarned }) => {
+const winningPrice = [
+  100, 200, 300, 500, 1000, 2000, 4000, 8000, 16000, 32000, 64000, 125000,
+  250000, 500000, 1000000,
+];
+
+const Sidebar = ({ name, moneyEarned, questionNumber }) => {
+  const winningList = winningPrice.map((price, i) => (
+    <li key={i} className={i + 1 === questionNumber ? 'active' : null}>
+      {i + 1}
+      <span>$ {price}</span>
+    </li>
+  ));
+
   return (
     <div className="Sidebar">
       <div>
@@ -15,53 +27,7 @@ const Sidebar = ({ name, moneyEarned }) => {
       </div>
 
       <hr></hr>
-      <ul>
-        <li>
-          15<span>$ 1000000</span>
-        </li>
-        <li>
-          14<span>$ 500000</span>
-        </li>
-        <li>
-          13<span>$ 250000</span>
-        </li>
-        <li>
-          12<span>$ 125000</span>
-        </li>
-        <li>
-          11<span>$ 64000</span>
-        </li>
-        <li>
-          10<span>$ 32000</span>
-        </li>
-        <li>
-          9 <span>$ 16000</span>
-        </li>
-        <li>
-          8 <span>$ 8000</span>
-        </li>
-        <li>
-          7 <span>$ 4000</span>
-        </li>
-        <li>
-          6 <span>$ 2000</span>
-        </li>
-        <li>
-          5 <span>$ 1000</span>
-        </li>
-        <li>
-          4 <span>$ 500</span>
-        </li>
-        <li>
-          3 <span>$ 300</span>
-        </li>
-        <li>
-          2 <span>$ 200</span>
-        </li>
-        <li className="active">
-          1 <span>$ 100</span>
-        </li>
-      </ul>
+      <ul>{winningList.reverse()}</ul>
     </div>
   );
 };

@@ -22,11 +22,17 @@ const App = () => {
 
   const viewComponent = viewStage ? (
     <>
-      <Stage data={data} questionNumber={questionNumber} setData={setData} />
+      <Stage
+        data={data}
+        questionNumber={questionNumber}
+        setData={setData}
+        setQuestionNumber={setQuestionNumber}
+      />
       <Sidebar
         name={name}
         moneyEarned={moneyEarned}
         questionNumber={questionNumber}
+        setMoneyEarned={setMoneyEarned}
       />
     </>
   ) : (

@@ -6,7 +6,7 @@ import './Answers.scss';
 import correctSound from '../sounds/correct.mp3';
 import wrongSound from '../sounds/wrong.mp3';
 
-const Answers = ({ answers, correct }) => {
+const Answers = ({ answers, correct, setQuestionNumber }) => {
   const [answerPressed, setAnswerPressed] = useState(false);
 
   const [playCorrect] = useSound(correctSound, { volume: 0.1 });
@@ -15,8 +15,11 @@ const Answers = ({ answers, correct }) => {
   const isCorrect = (i) => {
     if (!answerPressed) {
       setTimeout(() => {
-        if (i === correct) playCorrect();
-        else playWrong();
+        if (i === correct) {
+          playCorrect();
+          setQuestionNumber((prevNumber) => prevNumber + 1);
+        } else playWrong();
+        setAnswerPressed(false);
       }, 3000);
 
       setAnswerPressed(true);

@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useEffect } from 'react';
 
 import './Sidebar.scss';
 
@@ -7,13 +7,16 @@ const winningPrice = [
   250000, 500000, 1000000,
 ];
 
-const Sidebar = ({ name, moneyEarned, questionNumber }) => {
+const Sidebar = ({ name, moneyEarned, questionNumber, setMoneyEarned }) => {
   const winningList = winningPrice.map((price, i) => (
     <li key={i} className={i + 1 === questionNumber ? 'active' : null}>
       {i + 1}
       <span>$ {price}</span>
     </li>
   ));
+  useEffect(() => {
+    if (questionNumber > 1) setMoneyEarned(winningPrice[questionNumber - 2]);
+  }, [questionNumber]);
 
   return (
     <div className="Sidebar">

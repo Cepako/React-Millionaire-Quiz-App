@@ -29,6 +29,9 @@ const Answers = ({
         } else {
           e.target.className = 'incorrect';
           playWrong();
+          document.querySelector(
+            `.Answers ul li:nth-of-type(${correct + 1})`
+          ).className = 'correct';
         }
       }, 2000);
       setTimeout(() => {

@@ -2,7 +2,7 @@ import React, { useEffect, useRef, useState } from 'react';
 
 import './Timer.scss';
 
-const Timer = ({ questionNumber }) => {
+const Timer = ({ questionNumber, setGameEnd, answerChoiced }) => {
   const [time, setTime] = useState(30);
   const intervalIndexRef = useRef(null);
 
@@ -10,14 +10,18 @@ const Timer = ({ questionNumber }) => {
     setTime(30);
     intervalIndexRef.current = setInterval(() => {
       setTime((prevValue) => {
-        if (prevValue === 1) clearInterval(intervalIndexRef.current);
+        if (prevValue === 1) {
+          clearInterval(intervalIndexRef.current);
+        }
         return prevValue - 1;
       });
     }, 1000);
 
     return () => clearInterval(intervalIndexRef.current);
   }, [questionNumber]);
-
+  useEffect(() => {
+    if (time === 0 && !answerChoiced) setGameEnd(true);
+  }, [time]);
   return <div className="Timer">{time < 10 ? `0${time}` : time}</div>;
 };
 

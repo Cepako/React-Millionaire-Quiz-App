@@ -6,7 +6,13 @@ import './Answers.scss';
 import correctSound from '../sounds/correct.mp3';
 import wrongSound from '../sounds/wrong.mp3';
 
-const Answers = ({ answers, correct, setQuestionNumber }) => {
+const Answers = ({
+  answers,
+  correct,
+  setQuestionNumber,
+  setGameEnd,
+  setAnswerChoiced,
+}) => {
   const [answerPressed, setAnswerPressed] = useState(false);
 
   const [playCorrect] = useSound(correctSound, { volume: 0.1 });
@@ -14,6 +20,7 @@ const Answers = ({ answers, correct, setQuestionNumber }) => {
 
   const isCorrect = (e, i) => {
     if (!answerPressed) {
+      setAnswerChoiced(true);
       e.target.className = 'choice';
       setTimeout(() => {
         if (i === correct) {
@@ -28,6 +35,7 @@ const Answers = ({ answers, correct, setQuestionNumber }) => {
         if (i === correct) {
           setQuestionNumber((prevNumber) => prevNumber + 1);
         } else {
+          setGameEnd(true);
         }
         setAnswerPressed(false);
       }, 3500);

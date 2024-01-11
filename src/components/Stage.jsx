@@ -4,16 +4,26 @@ import useSound from 'use-sound';
 import Timer from './Timer';
 import Question from './Question';
 import Answers from './Answers';
+import GameEnd from './GameEnd';
 
 import './Stage.scss';
 
 import playSound from '../sounds/play.mp3';
 
-const Stage = ({ data, setData, questionNumber, setQuestionNumber }) => {
+const Stage = ({
+  data,
+  setData,
+  questionNumber,
+  setQuestionNumber,
+  gameEnd,
+  setGameEnd,
+  moneyEarned,
+}) => {
   const [play] = useSound(playSound, { volume: 0.1 });
   const [question, setQuestion] = useState('');
   const [answers, setAnswers] = useState([]);
   const [correctAnswer, setCorrectAnswer] = useState('');
+  const [answerChoiced, setAnswerChoiced] = useState(false);
 
   let difficultyLevel, indexInEffect;
   if (questionNumber < 4) difficultyLevel = 0;
@@ -43,16 +53,31 @@ const Stage = ({ data, setData, questionNumber, setQuestionNumber }) => {
     });
   }, [questionNumber]);
 
-  return (
-    <div className="Stage">
-      <img src="./millionaireBackground.jpg" alt="background" />
-      <Timer questionNumber={questionNumber} />
+  const stageView = gameEnd ? (
+    <GameEnd moneyEarned={moneyEarned} />
+  ) : (
+    <>
+      <Timer
+        questionNumber={questionNumber}
+        setGameEnd={setGameEnd}
+        answerChoiced={answerChoiced}
+      />
       <Question question={question} />
       <Answers
         answers={answers}
         correct={correctAnswer}
         setQuestionNumber={setQuestionNumber}
+        setGameEnd={setGameEnd}
+        setAnswerChoiced={setAnswerChoiced}
       />
+      ;
+    </>
+  );
+
+  return (
+    <div className="Stage">
+      <img src="./millionaireBackground.jpg" alt="background" />
+      {stageView}
     </div>
   );
 };

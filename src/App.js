@@ -12,6 +12,7 @@ const App = () => {
   const [moneyEarned, setMoneyEarned] = useState(0);
   const [data, setData] = useState([]);
   const [questionNumber, setQuestionNumber] = useState(1);
+  const [gameEnd, setGameEnd] = useState(false);
 
   useEffect(() => {
     fetch('./questions.json')
@@ -27,6 +28,9 @@ const App = () => {
         questionNumber={questionNumber}
         setData={setData}
         setQuestionNumber={setQuestionNumber}
+        gameEnd={gameEnd}
+        setGameEnd={setGameEnd}
+        moneyEarned={moneyEarned}
       />
       <Sidebar
         name={name}

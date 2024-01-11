@@ -12,22 +12,32 @@ const Answers = ({ answers, correct, setQuestionNumber }) => {
   const [playCorrect] = useSound(correctSound, { volume: 0.1 });
   const [playWrong] = useSound(wrongSound, { volume: 0.1 });
 
-  const isCorrect = (i) => {
+  const isCorrect = (e, i) => {
     if (!answerPressed) {
+      e.target.className = 'choice';
       setTimeout(() => {
         if (i === correct) {
+          e.target.className = 'correct';
           playCorrect();
+        } else {
+          e.target.className = 'incorrect';
+          playWrong();
+        }
+      }, 2000);
+      setTimeout(() => {
+        if (i === correct) {
           setQuestionNumber((prevNumber) => prevNumber + 1);
-        } else playWrong();
+        } else {
+        }
         setAnswerPressed(false);
-      }, 3000);
+      }, 3500);
 
       setAnswerPressed(true);
     }
   };
 
   const answersList = answers.map((answer, i) => (
-    <li onClick={() => isCorrect(i)} key={answer}>
+    <li onClick={(e) => isCorrect(e, i)} key={answer}>
       {answer}
     </li>
   ));

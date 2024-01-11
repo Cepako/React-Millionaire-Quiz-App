@@ -39,6 +39,15 @@
         background-image: linear-gradient(to bottom, #0017ff, #001cff);
         cursor: pointer;
       }
+      &.choice {
+        background-image: linear-gradient(to bottom, #0017ff, #001cff);
+      }
+      &.correct {
+        background-image: linear-gradient(to bottom, #0ef02c, #11f879);
+      }
+      &.incorrect {
+        background-image: linear-gradient(to bottom, #e02209, #f02308);
+      }
     }
   }
 }

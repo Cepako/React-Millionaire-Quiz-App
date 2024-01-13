@@ -15,7 +15,7 @@ const Timer = ({ questionNumber, setGameEnd, answerChoiced }) => {
         }
         return prevValue - 1;
       });
-    }, 1000);
+    }, 100);
 
     return () => clearInterval(intervalIndexRef.current);
   }, [questionNumber]);

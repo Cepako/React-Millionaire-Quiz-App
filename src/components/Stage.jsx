@@ -5,6 +5,8 @@ import Timer from './Timer';
 import Question from './Question';
 import Answers from './Answers';
 import GameEnd from './GameEnd';
+import RestartButton from './RestartButton';
+import QuitGameButton from './QuitGameButton';
 
 import './Stage.scss';
 
@@ -18,6 +20,10 @@ const Stage = ({
   gameEnd,
   setGameEnd,
   moneyEarned,
+  setMoneyEarned,
+  setViewStage,
+  tempData,
+  setName,
 }) => {
   const [play] = useSound(playSound, { volume: 0.1 });
   const [question, setQuestion] = useState('');
@@ -51,10 +57,30 @@ const Stage = ({
       newData[difficultyLevel].questions.splice(indexInEffect, 1);
       return newData;
     });
-  }, [questionNumber]);
+  }, [questionNumber, gameEnd]);
 
   const stageView = gameEnd ? (
-    <GameEnd moneyEarned={moneyEarned} />
+    <>
+      <RestartButton
+        setQuestionNumber={setQuestionNumber}
+        setGameEnd={setGameEnd}
+        tempData={tempData}
+        setData={setData}
+        setMoneyEarned={setMoneyEarned}
+        setAnswerChoiced={setAnswerChoiced}
+      />
+      <QuitGameButton
+        setGameEnd={setGameEnd}
+        setViewStage={setViewStage}
+        tempData={tempData}
+        setData={setData}
+        setMoneyEarned={setMoneyEarned}
+        setName={setName}
+        setQuestionNumber={setQuestionNumber}
+        setAnswerChoiced={setAnswerChoiced}
+      />
+      <GameEnd moneyEarned={moneyEarned} />
+    </>
   ) : (
     <>
       <Timer

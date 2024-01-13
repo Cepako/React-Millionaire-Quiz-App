@@ -14,12 +14,17 @@ const App = () => {
   const [questionNumber, setQuestionNumber] = useState(1);
   const [gameEnd, setGameEnd] = useState(false);
 
+  const [tempData, setTempData] = useState([]);
+
   useEffect(() => {
     fetch('./questions.json')
       .then((response) => response.json())
-      .then((data) => setData(data.games))
+      .then((data) => {
+        setData(data.games);
+        setTempData(data.games);
+      })
       .catch((err) => console.error('Fetch error: ', err));
-  }, []);
+  }, [gameEnd]);
 
   const viewComponent = viewStage ? (
     <>
@@ -31,6 +36,10 @@ const App = () => {
         gameEnd={gameEnd}
         setGameEnd={setGameEnd}
         moneyEarned={moneyEarned}
+        setMoneyEarned={setMoneyEarned}
+        setViewStage={setViewStage}
+        tempData={tempData}
+        setName={setName}
       />
       <Sidebar
         name={name}

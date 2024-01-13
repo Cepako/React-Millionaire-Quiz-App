@@ -2,20 +2,15 @@ import React from 'react';
 
 import './RestartButton.scss';
 
-const RestartButton = ({
-  setQuestionNumber,
-  setGameEnd,
-  tempData,
-  setData,
-  setMoneyEarned,
-  setAnswerChoiced,
-}) => {
+const RestartButton = ({ buttonsProps }) => {
+  const { setAnswerChoiced, setGameEnd, setQuestionNumber, setMoneyEarned } =
+    buttonsProps;
+
   const handleClick = () => {
-    setQuestionNumber(1);
-    setGameEnd(false);
-    setData(tempData);
-    setMoneyEarned(0);
     setAnswerChoiced(false);
+    setGameEnd(false);
+    setQuestionNumber(1);
+    setMoneyEarned(0);
   };
 
   return (

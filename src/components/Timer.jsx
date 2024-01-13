@@ -2,7 +2,7 @@ import React, { useEffect, useRef, useState } from 'react';
 
 import './Timer.scss';
 
-const Timer = ({ questionNumber, setGameEnd, answerChoiced }) => {
+const Timer = ({ answerChoiced, setGameEnd, questionNumber }) => {
   const [time, setTime] = useState(30);
   const intervalIndexRef = useRef(null);
 

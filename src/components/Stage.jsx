@@ -1,12 +1,12 @@
 import React, { useEffect, useState } from 'react';
 import useSound from 'use-sound';
 
-import Timer from './Timer';
-import Question from './Question';
 import Answers from './Answers';
 import GameEnd from './GameEnd';
-import RestartButton from './RestartButton';
+import Timer from './Timer';
+import Question from './Question';
 import QuitGameButton from './QuitGameButton';
+import RestartButton from './RestartButton';
 
 import './Stage.scss';
 
@@ -22,14 +22,13 @@ const Stage = ({
   moneyEarned,
   setMoneyEarned,
   setViewStage,
-  tempData,
   setName,
 }) => {
   const [play] = useSound(playSound, { volume: 0.1 });
-  const [question, setQuestion] = useState('');
   const [answers, setAnswers] = useState([]);
-  const [correctAnswer, setCorrectAnswer] = useState('');
   const [answerChoiced, setAnswerChoiced] = useState(false);
+  const [correctAnswer, setCorrectAnswer] = useState('');
+  const [question, setQuestion] = useState('');
 
   let difficultyLevel, indexInEffect;
   if (questionNumber < 4) difficultyLevel = 0;
@@ -59,42 +58,37 @@ const Stage = ({
     });
   }, [questionNumber, gameEnd]);
 
+  const buttonsProps = {
+    setQuestionNumber,
+    setGameEnd,
+    setMoneyEarned,
+    setAnswerChoiced,
+  };
+
   const stageView = gameEnd ? (
     <>
-      <RestartButton
-        setQuestionNumber={setQuestionNumber}
-        setGameEnd={setGameEnd}
-        tempData={tempData}
-        setData={setData}
-        setMoneyEarned={setMoneyEarned}
-        setAnswerChoiced={setAnswerChoiced}
-      />
+      <RestartButton buttonsProps={buttonsProps} />
       <QuitGameButton
-        setGameEnd={setGameEnd}
+        buttonsProps={buttonsProps}
         setViewStage={setViewStage}
-        tempData={tempData}
-        setData={setData}
-        setMoneyEarned={setMoneyEarned}
         setName={setName}
-        setQuestionNumber={setQuestionNumber}
-        setAnswerChoiced={setAnswerChoiced}
       />
       <GameEnd moneyEarned={moneyEarned} />
     </>
   ) : (
     <>
       <Timer
+        answerChoiced={answerChoiced}
         questionNumber={questionNumber}
         setGameEnd={setGameEnd}
-        answerChoiced={answerChoiced}
       />
       <Question question={question} />
       <Answers
         answers={answers}
         correct={correctAnswer}
-        setQuestionNumber={setQuestionNumber}
-        setGameEnd={setGameEnd}
         setAnswerChoiced={setAnswerChoiced}
+        setGameEnd={setGameEnd}
+        setQuestionNumber={setQuestionNumber}
       />
       ;
     </>

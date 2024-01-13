@@ -14,6 +14,7 @@ const Sidebar = ({ name, moneyEarned, questionNumber, setMoneyEarned }) => {
       <span>$ {price}</span>
     </li>
   ));
+
   useEffect(() => {
     if (questionNumber > 1) setMoneyEarned(winningPrice[questionNumber - 2]);
   }, [questionNumber]);

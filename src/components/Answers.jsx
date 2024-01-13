@@ -9,9 +9,9 @@ import wrongSound from '../sounds/wrong.mp3';
 const Answers = ({
   answers,
   correct,
-  setQuestionNumber,
-  setGameEnd,
   setAnswerChoiced,
+  setGameEnd,
+  setQuestionNumber,
 }) => {
   const [answerPressed, setAnswerPressed] = useState(false);
 
@@ -22,6 +22,7 @@ const Answers = ({
     if (!answerPressed) {
       setAnswerChoiced(true);
       e.target.className = 'choice';
+
       setTimeout(() => {
         if (i === correct) {
           e.target.className = 'correct';
@@ -34,6 +35,7 @@ const Answers = ({
           ).className = 'correct';
         }
       }, 2000);
+
       setTimeout(() => {
         if (i === correct) {
           setQuestionNumber((prevNumber) => prevNumber + 1);

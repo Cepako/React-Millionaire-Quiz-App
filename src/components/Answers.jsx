@@ -40,6 +40,7 @@ const Answers = ({
         } else {
           setGameEnd(true);
         }
+        setAnswerChoiced(false);
         setAnswerPressed(false);
       }, 3500);
 

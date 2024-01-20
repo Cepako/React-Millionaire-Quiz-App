@@ -10,4 +10,7 @@
   background-color: darken(#3f37c9, 40%);
   border: 2px solid white;
   border-radius: 10px;
+  @media only screen and (max-width: 1600px) {
+    width: 60%;
+  }
 }

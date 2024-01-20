@@ -32,4 +32,16 @@
       }
     }
   }
+  @media only screen and (max-width: 1400px) {
+    width: 30%;
+    div {
+      h2 {
+        width: 100%;
+        text-align: center;
+      }
+    }
+    ul {
+      width: 95%;
+    }
+  }
 }

@@ -1,6 +1,53 @@
-# Getting Started with Create React App
+# React Millionaire Quiz App
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+## Description
+
+This application is a simple quiz game inspired by the "Millionaires" program. The user has to answer 15 questions, each of which is divided into four answers. For each correct answer, the user climbs his way to a million.
+
+### Features:
+- 15 leading questions with four answers
+- The current state of the user's account
+- Countdown clock for reaction time
+
+### Technologies:
+- JavaScript: React.js library.
+- HTML: Structure and layout of the site.
+- SCSS: Styling and enhanced style sheets.
+
+![image](https://github.com/Cepako/React-Millionaire-Quiz-App/assets/131913675/26f72f2b-b550-479b-a6a6-d24152b8e0a4)
+
+![image](https://github.com/Cepako/React-Millionaire-Quiz-App/assets/131913675/ea8eb699-f11e-4f55-ba38-31efc2b131d5)
+
+
+## Installation via NPM (Node Package Manager)
+
+To install and run the Millionaire Quiz App using NPM, follow these steps:
+
+Prerequisites
+
+- Ensure that Node.js and NPM are installed on your machine. If not, download and install Node.js from the official website.
+  
+### Step 1: Clone the Repository
+
+Clone the repository to your local machine by running the following command:
+
+- git clone [REPOSITORY_URL]
+Replace [REPOSITORY_URL] with the actual URL of the repository.
+
+### Step 2: Navigate to the Project Directory
+
+Change to the project's root directory by executing:
+
+- cd [PROJECT_DIRECTORY]
+Replace [PROJECT_DIRECTORY] with the actual directory name where the project was cloned.
+
+### Step 3: Install Dependencies
+
+Install the necessary dependencies by executing:
+
+- npm install
+This command installs all the packages defined in the package.json file.
+
 
 ## Available Scripts
 
@@ -17,7 +64,6 @@ You may also see any lint errors in the console.
 ### `npm test`
 
 Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
 
 ### `npm run build`
 
@@ -27,7 +73,6 @@ It correctly bundles React in production mode and optimizes the build for the be
 The build is minified and the filenames include the hashes.\
 Your app is ready to be deployed!
 
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
 
 ### `npm run eject`
 
@@ -39,32 +84,10 @@ Instead, it will copy all the configuration files and the transitive dependencie
 
 You don't have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn't feel obligated to use this feature. However we understand that this tool wouldn't be useful if you couldn't customize it when you are ready for it.
 
-## Learn More
+## Conclusion
 
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
+The application should now be running locally on your machine, and you can explore and interact with the Millionaire Quiz App features.
 
-To learn React, check out the [React documentation](https://reactjs.org/).
+Note: Make sure to customize the above instructions based on the actual configuration and structure of the Millionaire Quiz App in the repository.
 
-### Code Splitting
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/code-splitting](https://facebook.github.io/create-react-app/docs/code-splitting)
-
-### Analyzing the Bundle Size
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size](https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size)
-
-### Making a Progressive Web App
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app](https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app)
-
-### Advanced Configuration
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/advanced-configuration](https://facebook.github.io/create-react-app/docs/advanced-configuration)
-
-### Deployment
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/deployment](https://facebook.github.io/create-react-app/docs/deployment)
-
-### `npm run build` fails to minify
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify)
+Feedback and pull requests are warmly welcomed! 💰🙋‍♂️💸
